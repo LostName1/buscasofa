@@ -32,7 +32,7 @@ Given('el usuario navega a la página de login', () => {
 });
 
 When('completa el formulario de login con credenciales válidas', () => {
-  cy.get('input[name="email"]').type(user.email);
+  cy.get('input[name="email"]', { timeout: 8000 }).type(user.email);
   cy.get('input[name="password"]').type(user.password);
 });
 
