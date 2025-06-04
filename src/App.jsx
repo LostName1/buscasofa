@@ -7,6 +7,8 @@ import { FuelApi } from './apis/FuelApi';
 
 
 import Header from './components/Header';
+import DarkModeToggle from "./components/DarkModeToggle";
+import "./index.css";
 import FuelMap from './components/FuelMap';
 import About from './components/About';
 import Home from './components/Home';
@@ -32,8 +34,10 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);   // Inicialmente cargando ...
   const [error, setError] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
-    useEffect(() => {
+    useEffect(() => {    
+      document.body.className = darkMode ? "dark-mode" : "";
       fetchFuelPrices()
         .then(data => {
           console.log(data);
@@ -44,7 +48,7 @@ function App() {
           setError(err.message);
           setLoading(false);
         });
-    }, []);
+    }, [darkMode]);
 
 /*   useEffect(() => {
     FuelApi.getInstance().getFuelPrices()
@@ -60,8 +64,9 @@ function App() {
   }, []); */
 
   return (
+    
     <BrowserRouter>
-      <Header user={user} />
+      <Header user={user} darkMode={darkMode} setDarkMode={setDarkMode} />
       {
         loading && <div className="loading">Cargando...</div>
       }

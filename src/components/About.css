@@ -7,3 +7,8 @@
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(33,33,33,0.08);
 }
+
+body.dark-mode .about-container {
+  background: #23272e;
+  color: #eee;
+}

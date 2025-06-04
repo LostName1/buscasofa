@@ -1,3 +1,17 @@
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body.dark-mode {
+  background: #23272e !important;
+  color: #eee;
+}
+
+body.dark-mode #root {
+  background: #23272e !important;
+}
+
 body {
   justify-content: center;
   height: 100vh;
@@ -6,4 +20,31 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 1.2em;
+  background: #fff;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .home-container {
+  background: #23272e;
+  color: #eee;
+}
+
+body.dark-mode .home-container th,
+body.dark-mode .home-container td {
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode footer {
+  background: #23272e;
+  color: #eee;
+}
+
+.dark-mode-toggle-icon {
+  color: var(--light-blue);
+  transition: color 0.2s;
+}
+
+.dark-mode-toggle-btn:hover .dark-mode-toggle-icon {
+  color: var(--yellow);
 }

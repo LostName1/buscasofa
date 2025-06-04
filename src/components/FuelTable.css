@@ -66,3 +66,37 @@ td, th {
   border-radius: 4px;
   border: 1px solid #1976d2;
 }
+
+/* Modo oscuro para la tabla de combustible */
+body.dark-mode .fuel-table {
+  background: #23272e;
+  color: #eee;
+}
+
+body.dark-mode .fuel-table th {
+  background: #222f3e;
+  color: #fff;
+}
+
+body.dark-mode .fuel-table td {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .fuel-table tr:hover {
+  background: #2d3748;
+  color: #fff;
+}
+
+body.dark-mode .fuel-table a {
+  color: #4fc3f7;
+}
+
+body.dark-mode .fuel-table a:hover {
+  color: #ffe082;
+}
+
+body.dark-mode .fuel-filters select {
+  background: #23272e;
+  color: #eee;
+  border: 1px solid #4fc3f7;
+}

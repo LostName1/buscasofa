@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import DarkModeToggle from "./DarkModeToggle";
+import './Header.css';
 
-
-import './Header.css'
-
-function Header({ user }) {
+function Header({ user, darkMode, setDarkMode }) {
     const handleLogout = () => {
         // Lógica de cierre de sesión
         console.log('Cerrar sesión');
@@ -17,7 +16,7 @@ function Header({ user }) {
 
     return (
         <header>
-            <nav>
+            <nav style={{ display: 'flex', alignItems: 'center' }}>
                 <Link to="/" style={{ marginRight: '1rem' }}>
                     <img src={logo} alt="Logo" style={{ height: '3em' }} />
                 </Link>
@@ -26,7 +25,8 @@ function Header({ user }) {
                 <Link className='mapa' to="/mapa" style={{ marginRight: '1rem' }}>Mapa</Link>
                 <Link className='about' to="/about">Quienes somos</Link>
                 
-                <span style={{ marginLeft: 'auto', marginRight: '1rem', float: 'right' }}>
+                <span style={{ marginLeft: 'auto', marginRight: '1rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
                     {(!user) &&
                         <>
                             <Link className='login' to="/login" style={{ marginRight: '1rem' }}>Login</Link>
@@ -40,8 +40,6 @@ function Header({ user }) {
                         </>
                     }
                 </span>
-
-
             </nav>
         </header>
     );
